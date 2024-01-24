@@ -9,4 +9,9 @@ public class GarageManager : MonoBehaviour
     {
         SceneManager.LoadScene("Waterfront");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
