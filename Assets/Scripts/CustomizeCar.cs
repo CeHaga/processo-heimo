@@ -10,6 +10,18 @@ public class CustomizeCar : MonoBehaviour
     public GameObject[] wheels;
     public GameObject[] spoilers;
 
+    private void Awake()
+    {
+        int color = PlayerPrefs.GetInt("Color", 0);
+        int bullbar = PlayerPrefs.GetInt("Bullbar", 0);
+        int wheels = PlayerPrefs.GetInt("Wheels", 0);
+        int spoiler = PlayerPrefs.GetInt("Spoiler", 0);
+        ChangeColor(color);
+        ChangeBullbar(bullbar);
+        ChangeWheels(wheels);
+        ChangeSpoiler(spoiler);
+    }
+
     public void ChangeColor(int index)
     {
         Material[] newMaterials = meshRenderer.materials;

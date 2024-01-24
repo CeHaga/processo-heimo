@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour
 {
@@ -17,9 +18,9 @@ public class CarController : MonoBehaviour
     [SerializeField] private WheelCollider rearLeftWheelCollider, rearRightWheelCollider;
 
     // Wheels
-    [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
-    [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
     [SerializeField] private Transform[] wheelsGroup;
+    private Transform frontLeftWheelTransform, frontRightWheelTransform;
+    private Transform rearLeftWheelTransform, rearRightWheelTransform;
 
     private void Start()
     {
@@ -47,6 +48,12 @@ public class CarController : MonoBehaviour
 
     private void GetInput()
     {
+        // Workshop Input
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Workshop");
+        }
+
         // Steering Input
         horizontalInput = Input.GetAxis("Horizontal");
 
