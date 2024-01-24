@@ -16,7 +16,7 @@ public class CollectibleController : MonoBehaviour
     void Update()
     {
         float t = Time.time - startTime;
-        float height = transform.position.y + Mathf.Sin(t) * rotationHeight;
+        float height = Mathf.Abs(transform.position.y + Mathf.Sin(t) * rotationHeight);
         transform.position = new Vector3(transform.position.x, height, transform.position.z);
         transform.Rotate(0, rotationSpeed, 0);
     }
