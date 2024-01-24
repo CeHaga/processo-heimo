@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour
@@ -10,17 +11,20 @@ public class CarController : MonoBehaviour
     private float currentSteerAngle, currentbreakForce;
     private bool isBreaking;
 
-    // Settings
+    [Header("Car Settings")]
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
 
-    // Wheel Colliders
+    [Header("Wheel Colliders")]
     [SerializeField] private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
     [SerializeField] private WheelCollider rearLeftWheelCollider, rearRightWheelCollider;
 
-    // Wheels
+    [Header("Wheel Transforms")]
     [SerializeField] private Transform[] wheelsGroup;
     private Transform frontLeftWheelTransform, frontRightWheelTransform;
     private Transform rearLeftWheelTransform, rearRightWheelTransform;
+
+    [Header("Events")]
+    public UnityEvent onCollectibleCollected;
 
     private void Start()
     {
@@ -102,5 +106,14 @@ public class CarController : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Collectible"))
+        {
+            Destroy(other.gameObject);
+            onCollectibleCollected.Invoke();
+        }
     }
 }

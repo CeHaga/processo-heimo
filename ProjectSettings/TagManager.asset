@@ -8,6 +8,7 @@ TagManager:
   - FRWheel
   - BLWheel
   - BRWheel
+  - Collectible
   layers:
   - Default
   - TransparentFX
