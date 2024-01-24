@@ -6,13 +6,15 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class ModsButtonController : MonoBehaviour, IPointerClickHandler
+public class ModsButtonController : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Mod Options")]
     [SerializeField] private ModsEnum mod;
     [SerializeField] private int index;
     [SerializeField] private int price;
     [SerializeField] private UnityEvent<ModsEnum, int> onModSelected;
+    [SerializeField] private UnityEvent<ModsEnum, int> onModPreview;
+    [SerializeField] private UnityEvent onModsRestore;
     [SerializeField] private GameObject selectedHighlight;
 
     [Header("Price")]
@@ -49,6 +51,16 @@ public class ModsButtonController : MonoBehaviour, IPointerClickHandler
         {
             SellMod();
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        onModPreview.Invoke(mod, index);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        onModsRestore.Invoke();
     }
 
     private void SelectMod()

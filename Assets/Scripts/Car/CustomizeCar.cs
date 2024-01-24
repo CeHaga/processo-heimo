@@ -11,45 +11,67 @@ public class CustomizeCar : MonoBehaviour
     [SerializeField] private GameObject[] wheels;
     [SerializeField] private GameObject[] spoilers;
     [SerializeField] private UnityEvent<ModsEnum, int> onModSelected;
+    private int colorIndex;
+    private int bullbarIndex;
+    private int wheelsIndex;
+    private int spoilerIndex;
 
     private void Awake()
     {
-        int color = PlayerPrefs.GetInt("Color", 0);
-        int bullbar = PlayerPrefs.GetInt("Bullbar", 0);
-        int wheels = PlayerPrefs.GetInt("Wheels", 0);
-        int spoiler = PlayerPrefs.GetInt("Spoiler", 0);
-        ChangeMod(ModsEnum.COLOR, color);
-        ChangeMod(ModsEnum.BULLBAR, bullbar);
-        ChangeMod(ModsEnum.WHEELS, wheels);
-        ChangeMod(ModsEnum.SPOILER, spoiler);
+        colorIndex = PlayerPrefs.GetInt("Color", 0);
+        bullbarIndex = PlayerPrefs.GetInt("Bullbar", 0);
+        wheelsIndex = PlayerPrefs.GetInt("Wheels", 0);
+        spoilerIndex = PlayerPrefs.GetInt("Spoiler", 0);
+        RestoreMods();
     }
 
-    public void ChangeMod(ModsEnum mod, int index)
+    public void SelectMod(ModsEnum mod, int index)
+    {
+        ChangeMod(mod, index, false);
+    }
+
+    public void ChangeMod(ModsEnum mod, int index, bool preview)
     {
         switch (mod)
         {
             case ModsEnum.COLOR:
-                ChangeColor(index);
+                ChangeColor(index, preview);
                 break;
             case ModsEnum.BULLBAR:
-                ChangeBullbar(index);
+                ChangeBullbar(index, preview);
                 break;
             case ModsEnum.WHEELS:
-                ChangeWheels(index);
+                ChangeWheels(index, preview);
                 break;
             case ModsEnum.SPOILER:
-                ChangeSpoiler(index);
+                ChangeSpoiler(index, preview);
                 break;
         }
-        onModSelected.Invoke(mod, index);
+        if (!preview) onModSelected.Invoke(mod, index);
     }
 
-    private void ChangeColor(int index)
+    public void PreviewMod(ModsEnum mod, int index)
+    {
+        ChangeMod(mod, index, true);
+    }
+
+    public void RestoreMods()
+    {
+        ChangeMod(ModsEnum.COLOR, colorIndex, false);
+        ChangeMod(ModsEnum.BULLBAR, bullbarIndex, false);
+        ChangeMod(ModsEnum.WHEELS, wheelsIndex, false);
+        ChangeMod(ModsEnum.SPOILER, spoilerIndex, false);
+    }
+
+    private void ChangeColor(int index, bool preview)
     {
         Material[] newMaterials = meshRenderer.materials;
         newMaterials[0] = materials[index];
         meshRenderer.materials = newMaterials;
-        PlayerPrefs.SetInt("Color", index);
+
+        if (preview) return;
+        colorIndex = index;
+        PlayerPrefs.SetInt("Color", colorIndex);
     }
 
     private void ChooseObject(GameObject[] gameObjects, int index)
@@ -62,21 +84,30 @@ public class CustomizeCar : MonoBehaviour
         if (gameObjects[index]) gameObjects[index].SetActive(true);
     }
 
-    private void ChangeBullbar(int index)
+    private void ChangeBullbar(int index, bool preview)
     {
         ChooseObject(bullbars, index);
-        PlayerPrefs.SetInt("Bullbar", index);
+
+        if (preview) return;
+        bullbarIndex = index;
+        PlayerPrefs.SetInt("Bullbar", bullbarIndex);
     }
 
-    private void ChangeWheels(int index)
+    private void ChangeWheels(int index, bool preview)
     {
         ChooseObject(wheels, index);
-        PlayerPrefs.SetInt("Wheels", index);
+
+        if (preview) return;
+        wheelsIndex = index;
+        PlayerPrefs.SetInt("Wheels", wheelsIndex);
     }
 
-    private void ChangeSpoiler(int index)
+    private void ChangeSpoiler(int index, bool preview)
     {
         ChooseObject(spoilers, index);
-        PlayerPrefs.SetInt("Spoiler", index);
+
+        if (preview) return;
+        spoilerIndex = index;
+        PlayerPrefs.SetInt("Spoiler", spoilerIndex);
     }
 }

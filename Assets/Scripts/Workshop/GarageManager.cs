@@ -9,9 +9,4 @@ public class GarageManager : MonoBehaviour
     {
         SceneManager.LoadScene("Sandbox");
     }
-
-    public void teste()
-    {
-        Debug.Log("teste");
-    }
 }
