@@ -480,7 +480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -790,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1103,7 +1103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1456,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2034,7 +2034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2461,7 +2461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3172,7 +3172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3533,7 +3533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3995,7 +3995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4380,7 +4380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4926,7 +4926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -5259,7 +5259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModSelected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeMod
+      value: SelectMod
       objectReference: {fileID: 0}
     - target: {fileID: 5487549884402640023, guid: 5714c3bff334e4741b471137bd821744, type: 3}
       propertyPath: onModsRestore.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
