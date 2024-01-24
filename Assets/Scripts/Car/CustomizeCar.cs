@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CustomizeCar : MonoBehaviour
 {
-    public MeshRenderer meshRenderer;
-    public Material[] materials;
-    public GameObject[] bullbars;
-    public GameObject[] wheels;
-    public GameObject[] spoilers;
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private Material[] materials;
+    [SerializeField] private GameObject[] bullbars;
+    [SerializeField] private GameObject[] wheels;
+    [SerializeField] private GameObject[] spoilers;
+    [SerializeField] private UnityEvent<ModsEnum, int> onModSelected;
 
     private void Awake()
     {
@@ -16,13 +18,33 @@ public class CustomizeCar : MonoBehaviour
         int bullbar = PlayerPrefs.GetInt("Bullbar", 0);
         int wheels = PlayerPrefs.GetInt("Wheels", 0);
         int spoiler = PlayerPrefs.GetInt("Spoiler", 0);
-        ChangeColor(color);
-        ChangeBullbar(bullbar);
-        ChangeWheels(wheels);
-        ChangeSpoiler(spoiler);
+        ChangeMod(ModsEnum.COLOR, color);
+        ChangeMod(ModsEnum.BULLBAR, bullbar);
+        ChangeMod(ModsEnum.WHEELS, wheels);
+        ChangeMod(ModsEnum.SPOILER, spoiler);
     }
 
-    public void ChangeColor(int index)
+    public void ChangeMod(ModsEnum mod, int index)
+    {
+        switch (mod)
+        {
+            case ModsEnum.COLOR:
+                ChangeColor(index);
+                break;
+            case ModsEnum.BULLBAR:
+                ChangeBullbar(index);
+                break;
+            case ModsEnum.WHEELS:
+                ChangeWheels(index);
+                break;
+            case ModsEnum.SPOILER:
+                ChangeSpoiler(index);
+                break;
+        }
+        onModSelected.Invoke(mod, index);
+    }
+
+    private void ChangeColor(int index)
     {
         Material[] newMaterials = meshRenderer.materials;
         newMaterials[0] = materials[index];
@@ -40,19 +62,19 @@ public class CustomizeCar : MonoBehaviour
         if (gameObjects[index]) gameObjects[index].SetActive(true);
     }
 
-    public void ChangeBullbar(int index)
+    private void ChangeBullbar(int index)
     {
         ChooseObject(bullbars, index);
         PlayerPrefs.SetInt("Bullbar", index);
     }
 
-    public void ChangeWheels(int index)
+    private void ChangeWheels(int index)
     {
         ChooseObject(wheels, index);
         PlayerPrefs.SetInt("Wheels", index);
     }
 
-    public void ChangeSpoiler(int index)
+    private void ChangeSpoiler(int index)
     {
         ChooseObject(spoilers, index);
         PlayerPrefs.SetInt("Spoiler", index);

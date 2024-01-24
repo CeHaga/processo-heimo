@@ -9,6 +9,7 @@ TagManager:
   - BLWheel
   - BRWheel
   - Collectible
+  - ButtonPriceCounter
   layers:
   - Default
   - TransparentFX
