@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82930912999232250}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0985376, y: 0.000000020690734, z: -0.000000002048786, w: 0.99513334}
+  m_LocalRotation: {x: 0.0985376, y: -0.000000020690734, z: 0.000000002048786, w: 0.99513334}
   m_LocalPosition: {x: 0, y: 2.608, z: -6.314003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -392,6 +392,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2211605126954957861, guid: cfdaad07a532bbb49a9383bc73e7e93a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6827950626288087400}
+    - targetCorrespondingSourceObject: {fileID: 2211605126954957861, guid: cfdaad07a532bbb49a9383bc73e7e93a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1380929505605706760}
   m_SourcePrefab: {fileID: 100100000, guid: cfdaad07a532bbb49a9383bc73e7e93a, type: 3}
 --- !u!146 &433947286762723398 stripped
 WheelCollider:
@@ -495,6 +498,100 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1380929505605706760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406045847920367968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: cf9fb457259ba7040b9e87742924a70d, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1758853195013072071}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: Honk
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7879553b-2e5a-4a9e-8256-1345de613372
+    m_ActionName: Driving/Honk[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1758853195013072071}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: Brake
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3be5d7bb-7c3f-4a8d-ba91-f95fae9ed23d
+    m_ActionName: Driving/Brake[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1758853195013072071}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: Drive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 185f16b4-bc1b-4410-a305-db6718099d90
+    m_ActionName: Driving/Drive[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1758853195013072071}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: BackToWorkshop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 161f71d2-0d80-43ee-90b0-5452e6a0b3b0
+    m_ActionName: Driving/Workshop[/Keyboard/escape]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Driving
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!146 &1508984909850087264 stripped
 WheelCollider:
   m_CorrespondingSourceObject: {fileID: 1856197579309312549, guid: cfdaad07a532bbb49a9383bc73e7e93a, type: 3}

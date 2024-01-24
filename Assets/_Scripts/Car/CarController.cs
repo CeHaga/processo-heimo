@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class CarController : MonoBehaviour
 {
@@ -54,34 +55,9 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GetInput();
         HandleMotor();
         HandleSteering();
         UpdateWheels();
-    }
-
-    private void GetInput()
-    {
-        // Workshop Input
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Workshop");
-        }
-
-        // Steering Input
-        horizontalInput = Input.GetAxis("Horizontal");
-
-        // Acceleration Input
-        verticalInput = Input.GetAxis("Vertical");
-
-        // Breaking Input
-        isBreaking = Input.GetKey(KeyCode.Space);
-
-        // Honk Input
-        if (Input.GetKeyDown(KeyCode.Q) && audioSource)
-        {
-            audioSource.Play();
-        }
     }
 
     private void HandleMotor()
@@ -151,6 +127,30 @@ public class CarController : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         if (transform.eulerAngles.z <= 90 || transform.eulerAngles.z >= 270) yield break;
+        SceneManager.LoadScene("Workshop");
+    }
+
+    public void Honk(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        if (!audioSource) return;
+        audioSource.Play();
+    }
+
+    public void Brake(InputAction.CallbackContext context)
+    {
+        isBreaking = true;
+        if (context.canceled) isBreaking = false;
+    }
+
+    public void Drive(InputAction.CallbackContext context)
+    {
+        horizontalInput = context.ReadValue<Vector2>().x;
+        verticalInput = context.ReadValue<Vector2>().y;
+    }
+
+    public void BackToWorkshop(InputAction.CallbackContext context)
+    {
         SceneManager.LoadScene("Workshop");
     }
 }
