@@ -15,6 +15,7 @@ public class CustomizeCar : MonoBehaviour
         Material[] newMaterials = meshRenderer.materials;
         newMaterials[0] = materials[index];
         meshRenderer.materials = newMaterials;
+        PlayerPrefs.SetInt("Color", index);
     }
 
     private void ChooseObject(GameObject[] gameObjects, int index)
@@ -30,15 +31,18 @@ public class CustomizeCar : MonoBehaviour
     public void ChangeBullbar(int index)
     {
         ChooseObject(bullbars, index);
+        PlayerPrefs.SetInt("Bullbar", index);
     }
 
     public void ChangeWheels(int index)
     {
         ChooseObject(wheels, index);
+        PlayerPrefs.SetInt("Wheels", index);
     }
 
     public void ChangeSpoiler(int index)
     {
         ChooseObject(spoilers, index);
+        PlayerPrefs.SetInt("Spoiler", index);
     }
 }

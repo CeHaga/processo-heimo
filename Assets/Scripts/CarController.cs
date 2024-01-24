@@ -19,6 +19,23 @@ public class CarController : MonoBehaviour
     // Wheels
     [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
     [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
+    [SerializeField] private Transform[] wheelsGroup;
+
+    private void Start()
+    {
+        foreach (Transform wheelGroup in wheelsGroup)
+        {
+            if (!wheelGroup.gameObject.activeSelf) continue;
+            foreach (Transform wheel in wheelGroup)
+            {
+                if (wheel.CompareTag("FLWheel")) frontLeftWheelTransform = wheel;
+                if (wheel.CompareTag("FRWheel")) frontRightWheelTransform = wheel;
+                if (wheel.CompareTag("BLWheel")) rearLeftWheelTransform = wheel;
+                if (wheel.CompareTag("BRWheel")) rearRightWheelTransform = wheel;
+            }
+            break;
+        }
+    }
 
     private void FixedUpdate()
     {
