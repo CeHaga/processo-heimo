@@ -3113,6 +3113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8022fc9a39e15744da8cbd7399353661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeSeconds: 10
 --- !u!114 &854255766
 MonoBehaviour:
   m_ObjectHideFlags: 0

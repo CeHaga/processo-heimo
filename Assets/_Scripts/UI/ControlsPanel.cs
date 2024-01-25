@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ControlsPanel : MonoBehaviour
 {
+    [SerializeField] private float activeSeconds;
+
     private void Start()
     {
-        StartCoroutine(ClosePanel());
+        Invoke("ClosePanel", activeSeconds);
     }
 
-    private IEnumerator ClosePanel()
+    private void ClosePanel()
     {
-        yield return new WaitForSeconds(5f);
         gameObject.SetActive(false);
     }
 }

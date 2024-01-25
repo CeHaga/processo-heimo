@@ -22,7 +22,7 @@ public class ButtonClick : MonoBehaviour
     public void OnClick()
     {
         image.sprite = clickImage;
-        InvokeRepeating("OnRelease", 0.1f, 0);
+        Invoke("OnRelease", 0.1f);
     }
 
     public void OnRelease()
