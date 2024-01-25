@@ -14,4 +14,12 @@ public class GarageManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+#if UNITY_EDITOR
+    [EasyButtons.Button]
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+#endif
 }
