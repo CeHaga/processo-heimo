@@ -1258,7 +1258,6 @@ GameObject:
   - component: {fileID: 326837783}
   - component: {fileID: 326837782}
   - component: {fileID: 326837781}
-  - component: {fileID: 326837780}
   m_Layer: 0
   m_Name: Water
   m_TagString: Void
@@ -1274,19 +1273,19 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326837778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 0, y: 0, z: -207.93}
+  m_LocalScale: {x: 150, y: 2, z: 150}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 378518659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 124.40456, y: -18.33}
+  m_AnchoredPosition: {x: 217.39, y: -17.1}
   m_SizeDelta: {x: 348.8091, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!65 &326837780
-BoxCollider:
+--- !u!64 &326837781
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1303,29 +1302,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!64 &326837781
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326837778}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &326837782
@@ -1473,7 +1451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333002018}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000016064068, y: 0.99513334, z: -0.098537624, w: 0.000000016223131}
+  m_LocalRotation: {x: -0.000000002048786, y: 0.99513334, z: -0.0985376, w: -0.000000020690734}
   m_LocalPosition: {x: -155.83217, y: 2.6091645, z: 115.32998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3262,6 +3240,18 @@ PrefabInstance:
     - target: {fileID: 4197543913290980387, guid: 96307006d9e49a34f8ff53b52211eafc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563588123126773345, guid: 96307006d9e49a34f8ff53b52211eafc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0985376
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563588123126773345, guid: 96307006d9e49a34f8ff53b52211eafc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000000020690734
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563588123126773345, guid: 96307006d9e49a34f8ff53b52211eafc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000002048786
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

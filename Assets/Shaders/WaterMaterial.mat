@@ -52,9 +52,10 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleDensity: 15
-    - _RippleSlimness: 4
+    - _RippleDensity: 50
+    - _RippleSlimness: 5
     - _RippleSpeed: 1
+    - _WaveSpeed: 0.2
     m_Colors:
     - _BaseColor: {r: 0, g: 0.3704905, b: 0.8301887, a: 0}
     - _RippleColor: {r: 0.5235849, g: 0.6795817, b: 1, a: 0.2901961}
