@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ir para fase
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f43c5e3c58d161940bca876bcb07c39e, type: 2}
+  m_sharedMaterial: {fileID: 4109945209796458647, guid: f43c5e3c58d161940bca876bcb07c39e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.85
+  m_fontSize: 30.85
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2932,8 +2932,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sair
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f43c5e3c58d161940bca876bcb07c39e, type: 2}
+  m_sharedMaterial: {fileID: 4109945209796458647, guid: f43c5e3c58d161940bca876bcb07c39e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2957,7 +2957,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
+  m_fontSize: 12
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3177,7 +3177,7 @@ GameObject:
   - component: {fileID: 1053382785}
   - component: {fileID: 1053382784}
   m_Layer: 5
-  m_Name: Sair
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3451,7 +3451,7 @@ GameObject:
   - component: {fileID: 1188264311}
   - component: {fileID: 1188264310}
   m_Layer: 5
-  m_Name: "Resolu\xE7\xE3o2"
+  m_Name: Resolution2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5641,7 +5641,7 @@ GameObject:
   - component: {fileID: 1785658075}
   - component: {fileID: 1785658074}
   m_Layer: 5
-  m_Name: "Resolu\xE7\xE3o1"
+  m_Name: Resolution1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5820,8 +5820,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1920 x 1080
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f43c5e3c58d161940bca876bcb07c39e, type: 2}
+  m_sharedMaterial: {fileID: 4109945209796458647, guid: f43c5e3c58d161940bca876bcb07c39e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5845,7 +5845,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.75
+  m_fontSize: 12
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5975,8 +5975,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1280 x 720
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f43c5e3c58d161940bca876bcb07c39e, type: 2}
+  m_sharedMaterial: {fileID: 4109945209796458647, guid: f43c5e3c58d161940bca876bcb07c39e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6000,7 +6000,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
+  m_fontSize: 12
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6873,7 +6873,7 @@ GameObject:
   - component: {fileID: 2086477522}
   - component: {fileID: 2086477521}
   m_Layer: 5
-  m_Name: Dirigir
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
