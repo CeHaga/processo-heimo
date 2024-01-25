@@ -28,14 +28,12 @@ public class CarController : MonoBehaviour
     public UnityEvent onCollectibleCollected;
 
     [Header("SFX")]
+    [SerializeField] private AudioSource honkSource;
     [SerializeField] private AudioClip honk;
-    private AudioSource audioSource;
-
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = honk;
-    }
+    [SerializeField] private AudioSource engineSource;
+    [SerializeField] private AudioClip engine;
+    private float enginePitch = 0.5f;
+    private float carSpeed;
 
     private void Start()
     {
@@ -51,6 +49,8 @@ public class CarController : MonoBehaviour
             }
             break;
         }
+
+        StartMotorSound();
     }
 
     private void FixedUpdate()
@@ -58,6 +58,15 @@ public class CarController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        UpdateMotorSound();
+    }
+
+    private void UpdateMotorSound()
+    {
+        carSpeed = GetComponent<Rigidbody>().velocity.magnitude;
+        enginePitch = carSpeed / 25f;
+        engineSource.pitch = enginePitch;
+        Debug.Log(enginePitch);
     }
 
     private void HandleMotor()
@@ -113,28 +122,11 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void CheckIfCarIsUpsideDown()
-    {
-        // Check if car is upside down for 3 seconds
-        if (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270)
-        {
-            Debug.Log("Upside down");
-            StartCoroutine(ResetCar());
-        }
-    }
-
-    private IEnumerator ResetCar()
-    {
-        yield return new WaitForSeconds(3f);
-        if (transform.eulerAngles.z <= 90 || transform.eulerAngles.z >= 270) yield break;
-        SceneManager.LoadScene("Workshop");
-    }
-
     public void Honk(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        if (!audioSource) return;
-        audioSource.Play();
+        if (!honkSource) return;
+        honkSource.PlayOneShot(honk);
     }
 
     public void Brake(InputAction.CallbackContext context)
@@ -152,5 +144,13 @@ public class CarController : MonoBehaviour
     public void BackToWorkshop(InputAction.CallbackContext context)
     {
         SceneManager.LoadScene("Workshop");
+    }
+
+    private void StartMotorSound()
+    {
+        if (!engineSource) return;
+        engineSource.clip = engine;
+        engineSource.loop = true;
+        engineSource.Play();
     }
 }
