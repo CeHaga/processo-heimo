@@ -11,6 +11,9 @@ public class CustomizeCar : MonoBehaviour
     [SerializeField] private GameObject[] wheels;
     [SerializeField] private GameObject[] spoilers;
     [SerializeField] private UnityEvent<ModsEnum, int> onModSelected;
+    [Header("SFX")]
+    [SerializeField] private AudioClip selectClip;
+    private AudioSource audioSource;
     private int colorIndex;
     private int bullbarIndex;
     private int wheelsIndex;
@@ -23,14 +26,21 @@ public class CustomizeCar : MonoBehaviour
         wheelsIndex = PlayerPrefs.GetInt("Wheels", 0);
         spoilerIndex = PlayerPrefs.GetInt("Spoiler", 0);
         RestoreMods();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void SelectMod(ModsEnum mod, int index)
     {
-        ChangeMod(mod, index, false);
+        ChangeMod(mod, index, preview: false, playAudio: true);
     }
 
-    public void ChangeMod(ModsEnum mod, int index, bool preview)
+    public void BuyMod(ModsEnum mod, int index)
+    {
+        ChangeMod(mod, index, preview: false, playAudio: false);
+    }
+
+    public void ChangeMod(ModsEnum mod, int index, bool preview, bool playAudio)
     {
         switch (mod)
         {
@@ -48,19 +58,20 @@ public class CustomizeCar : MonoBehaviour
                 break;
         }
         if (!preview) onModSelected.Invoke(mod, index);
+        if (playAudio) audioSource.PlayOneShot(selectClip);
     }
 
     public void PreviewMod(ModsEnum mod, int index)
     {
-        ChangeMod(mod, index, true);
+        ChangeMod(mod, index, preview: true, playAudio: false);
     }
 
     public void RestoreMods()
     {
-        ChangeMod(ModsEnum.COLOR, colorIndex, false);
-        ChangeMod(ModsEnum.BULLBAR, bullbarIndex, false);
-        ChangeMod(ModsEnum.WHEELS, wheelsIndex, false);
-        ChangeMod(ModsEnum.SPOILER, spoilerIndex, false);
+        ChangeMod(ModsEnum.COLOR, colorIndex, preview: false, playAudio: false);
+        ChangeMod(ModsEnum.BULLBAR, bullbarIndex, preview: false, playAudio: false);
+        ChangeMod(ModsEnum.WHEELS, wheelsIndex, preview: false, playAudio: false);
+        ChangeMod(ModsEnum.SPOILER, spoilerIndex, preview: false, playAudio: false);
     }
 
     private void ChangeColor(int index, bool preview)

@@ -66,7 +66,6 @@ public class CarController : MonoBehaviour
         carSpeed = GetComponent<Rigidbody>().velocity.magnitude;
         enginePitch = carSpeed / 25f;
         engineSource.pitch = enginePitch;
-        Debug.Log(enginePitch);
     }
 
     private void HandleMotor()
@@ -113,7 +112,7 @@ public class CarController : MonoBehaviour
     {
         if (other.CompareTag("Collectible"))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<CollectibleController>().Collect();
             onCollectibleCollected.Invoke();
         }
         if (other.CompareTag("Void"))

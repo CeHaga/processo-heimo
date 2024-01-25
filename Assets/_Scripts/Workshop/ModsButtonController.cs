@@ -14,6 +14,7 @@ public class ModsButtonController : MonoBehaviour, IPointerClickHandler, IPointe
     [SerializeField] private int price;
     [SerializeField] private UnityEvent<ModsEnum, int> onModSelected;
     [SerializeField] private UnityEvent<ModsEnum, int> onModPreview;
+    [SerializeField] private UnityEvent<ModsEnum, int> onModBought;
     [SerializeField] private UnityEvent onModsRestore;
     [SerializeField] private GameObject selectedHighlight;
 
@@ -22,6 +23,12 @@ public class ModsButtonController : MonoBehaviour, IPointerClickHandler, IPointe
     [SerializeField] private TMPro.TextMeshProUGUI priceText;
     [SerializeField] private UnityEvent<int, Action, Action> onModBuy;
     [SerializeField] private UnityEvent<int> onModSell;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip buyClip;
+    [SerializeField] private AudioClip sellClip;
+    [SerializeField] private AudioClip errorClip;
+    private AudioSource audioSource;
     private bool isUnlocked;
     private bool isSelected;
 
@@ -38,6 +45,8 @@ public class ModsButtonController : MonoBehaviour, IPointerClickHandler, IPointe
         {
             priceText.text = price.ToString();
         }
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -72,15 +81,17 @@ public class ModsButtonController : MonoBehaviour, IPointerClickHandler, IPointe
     private void onEnoughMoney()
     {
         Debug.Log("Enough money");
+        audioSource.PlayOneShot(buyClip);
         isUnlocked = true;
         pricePanel.SetActive(false);
         PlayerPrefs.SetInt(mod.ToString() + index, 1);
-        SelectMod();
+        onModBought.Invoke(mod, index);
     }
 
     private void onNotEnoughMoney()
     {
         Debug.Log("Not enough money");
+        audioSource.PlayOneShot(errorClip);
     }
 
     private void BuyMod()
@@ -101,10 +112,12 @@ public class ModsButtonController : MonoBehaviour, IPointerClickHandler, IPointe
         }
         if (isSelected)
         {
+            audioSource.PlayOneShot(errorClip);
             return;
         }
         if (index == 0)
         {
+            audioSource.PlayOneShot(errorClip);
             return;
         }
         isUnlocked = false;
@@ -112,6 +125,8 @@ public class ModsButtonController : MonoBehaviour, IPointerClickHandler, IPointe
         priceText.text = price.ToString();
         PlayerPrefs.SetInt(mod.ToString() + index, 0);
         onModSell.Invoke(price / 2);
+
+        audioSource.PlayOneShot(sellClip);
     }
 
     public void CheckIfSelected(ModsEnum mod, int index)
